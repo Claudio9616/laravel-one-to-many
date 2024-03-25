@@ -11,6 +11,7 @@
                 <th scope="col">CODICE PROGETTO</th>
                 <th scope="col">TITOLO</th>
                 <th scope="col">LINGUAGGIO</th>
+                <th scope="col">TIPO</th>
                 <th scope="col">
                     <div class="d-flex justify-content-end">
                         <a href="{{route('admin.projects.create')}}"><i class="fas fa-plus"></i></a>
@@ -24,6 +25,7 @@
                     <td>{{$project->id}}</td>
                     <td>{{$project->title}}</td>
                     <td>{{$project->language}}</td>
+                    <td>{{$project->type?->label}}</td>
                     <td>
                         <div class="d-flex justify-content-end gap-3">
                             <a href="{{route('admin.projects.show', $project->id)}}"><i class="fa-solid fa-eye"></i></a>

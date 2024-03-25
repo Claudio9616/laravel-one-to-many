@@ -20,6 +20,13 @@
             <label for="image" class="form-label">Aggiungi immagine del progetto</label>
             <input type="file" class="form-control @error('image') is-invalid @elseif (old('image', '')) is-valid @enderror" id="image" name="image" placeholder="Immagine progetto" value="{{old('image', '')}}">
         </div>
+        <label for="type">Seleziona una categoria</label>
+        <select class="form-select mb-3" name="type_id" id="type">
+            <option value="">Nessuna</option>
+            @foreach ($types as $type)
+            <option>----</option>                
+            @endforeach
+        </select>
         <button type="reset">Svuoata campi</button>
         <button type="submit">Salva</button>
     </form>  

@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Type;
 
 class ProjectController extends Controller
 {
@@ -17,7 +18,8 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::all();
-        return view('admin.projects.index', compact('projects'));
+        $types = Type::all();
+        return view('admin.projects.index', compact('projects', 'types'));
     }
 
     /**
