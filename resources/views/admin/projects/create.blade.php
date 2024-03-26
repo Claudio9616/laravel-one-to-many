@@ -24,8 +24,9 @@
         <select class="form-select mb-3" name="type_id" id="type">
             <option value="">Nessuna</option>
             @foreach ($types as $type)
-            <option>----</option>                
+            <option value="{{$type->id}}" @if(old('type_id', '') == $type->id) selected @endif>{{$type->label}}</option>                
             @endforeach
+            {{-- dentro la option gli passi il label, ma per passare davvero il type id lo scrivi nel value e nell'if gli metti l'old per passare la selected --}}
         </select>
         <button type="reset">Svuoata campi</button>
         <button type="submit">Salva</button>

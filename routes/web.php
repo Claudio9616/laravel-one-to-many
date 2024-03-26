@@ -21,13 +21,6 @@ Route::get('/', GuestHomeController::class)->name('guest.home');
 
 // PER CREARE LE ROTTE PER I GUEST GUARDA LA LIVE DEL 20/03/2024 DAL MINUTO 02:00:00
 
-
-
-
-// TO DO:
-// MODIFICARE LO STILE DELLE IMG NELLO SHOW
-// GESTIRE GLI ERRORI CON IL @MESSAGE (VEDI LEZIONE DEL 21/03)
-
 Route::get('/admin', AdminHomeController::class)->middleware(['auth'])->name('admin.home');
 
 Route::get('/admin/projects', [AdminProjectController::class, 'index'])->name('admin.projects.index')->middleware('auth');

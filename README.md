@@ -10,3 +10,9 @@ scorsi:
 - visualizzare nella pagina di dettaglio di un progetto la tipologia associata, se presente
 - permettere all’utente di associare una tipologia nella pagina di creazione e modifica di un progetto
 - gestire il salvataggio dell’associazione progetto-tipologia con opportune regole di validazione
+
+<!-- PROSEGUI CON IL RESTO DELL'ESERCIZIO DAl minuto 1:23 DELLA LEZIONE DEL 25/03/2024
+PASSA IL MODELLO TYPE ALLA CREATE E ALL'EDIT
+QUINDI MODIFICA LA OLD DELLA SECTION NEL CREATE E NELL'EDIT
+FAI CONTROLLI DI SICUREZZA
+GESTIRE GLI ERRORI CON IL @MESSAGE (VEDI LEZIONE DEL 21/03) -->
