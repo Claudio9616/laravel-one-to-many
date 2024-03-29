@@ -3,6 +3,7 @@
 @section('content')
 <div class="container">
     <h1>{{$project->title}}</h1>
+    <h5>Tipologia: @if ($project->type) {{$project->type->label}} @else nessuna @endif</h5>
     <p>{{$project->description}}</p>
     <img src="{{asset('storage/' . $project->image)}}" alt="" class="img-fluid">
     <div class="d-flex justify-content-between">

@@ -39,13 +39,15 @@ class ProjectController extends Controller
             'title' => 'required|string|unique:projects',
             'description' => 'required|string',
             'language' => 'required|string',
-            'image' => 'nullable|image'
+            'image' => 'nullable|image',
+            'type_id' => 'nullable|exists:types,id',
         ], [
             'title.required' => 'Il titolo è obbligatorio',
             'title.unique' => 'Il titolo è già esistente',
             'description.required' => 'La descrizione è obligatoria',
             'language.required' => 'La lingua è obbligatoria',
-            'image.image' => 'Il file inserito non è valido'
+            'image.image' => 'Il file inserito non è valido',
+            'type_id.exists' => 'La categoria non è valida'
         ]);
         $data = $request->all();
         $project = new Project();
@@ -71,7 +73,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('admin.projects.edit', compact('project'));
+        $types = Type::all();
+        return view('admin.projects.edit', compact('project', 'types'));
     }
 
     /**
@@ -84,13 +87,15 @@ class ProjectController extends Controller
             'title' => ['required', 'string', Rule::unique('projects')->ignore($project->id)],
             'language' => 'required|string',
             'description' => 'required|string',
-            'image' => 'nullable|image'
+            'image' => 'nullable|image',
+            'type_id' => 'nullable|exists:types,id'
         ], [
             'title.required' => 'Il titolo è obbligatorio',
             'title.unique' => 'Il titolo è già esistente',
             'description.required' => 'La descrizione è obligatoria',
             'language.required' => 'La lingua è obbligatoria',
-            'image.image' => 'Il file inserito non è valido'
+            'image.image' => 'Il file inserito non è valido',
+            'type_id.exists' => 'La categoria non è valida'
         ]);
         $data = $request->all();
         $project->fill($data);

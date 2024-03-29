@@ -20,14 +20,21 @@
             <label for="image" class="form-label">Aggiungi immagine del progetto</label>
             <input type="file" class="form-control @error('image') is-invalid @elseif (old('image', '')) is-valid @enderror" id="image" name="image" placeholder="Immagine progetto" value="{{old('image', '')}}">
         </div>
-        <label for="type">Seleziona una categoria</label>
-        <select class="form-select mb-3" name="type_id" id="type">
-            <option value="">Nessuna</option>
-            @foreach ($types as $type)
-            <option value="{{$type->id}}" @if(old('type_id', '') == $type->id) selected @endif>{{$type->label}}</option>                
-            @endforeach
-            {{-- dentro la option gli passi il label, ma per passare davvero il type id lo scrivi nel value e nell'if gli metti l'old per passare la selected --}}
-        </select>
+        <div class="mb-3">
+            <label for="type">Seleziona una categoria</label>
+            <select class="form-select mb-3 @error('type_id') is-invalid @elseif (old('type_id', '')) is-valid @enderror" name="type_id" id="type">
+                <option value="">Nessuna</option>
+                @foreach ($types as $type)
+                <option value="{{$type->id}}" @if(old('type_id', '') == $type->id) selected @endif>{{$type->label}}</option>                
+                @endforeach
+                {{-- dentro la option gli passi il label, ma per passare davvero il type id lo scrivi nel value e nell'if gli metti l'old per passare la selected --}}
+            </select>
+            @error('type_id')
+                <div class="invalid-feedback">
+                    {{$message}}
+                </div>
+            @enderror
+        </div>
         <button type="reset">Svuoata campi</button>
         <button type="submit">Salva</button>
     </form>  
